@@ -16,14 +16,13 @@ function App() {
 
   const getAllUsers = () => {
     axios
-      .get("http://localhost:3001/api/user/getAllUsers")
+      .get("https://examplle.herokuapp.com/api/user/getAllUsers")
       .then((res) => {
         setUsers(res.data);
         const isCurrentUserExist = currentUser
           ? res.data.some((user) => user._id === currentUser?.id)
           : true;
         if (!isCurrentUserExist) {
-          alert("Removing");
           removeUser();
           setCurrentUser(null);
         }
@@ -49,7 +48,7 @@ function App() {
   };
   const blockUser = (id) => {
     axios
-      .post("http://localhost:3001/api/user/blockUser", { id })
+      .post("https://examplle.herokuapp.com/api/user/blockUser", { id })
       .then((res) => {
         if (currentUser.id === id) {
           currentUser.isBlocked = true;
@@ -61,7 +60,7 @@ function App() {
   };
   const unblockUser = (id) => {
     axios
-      .post("http://localhost:3001/api/user/unblockUser", { id })
+      .post("https://examplle.herokuapp.com/api/user/unblockUser", { id })
       .then((res) => {
         if (currentUser.id === id) {
           currentUser.isBlocked = false;
@@ -73,7 +72,7 @@ function App() {
   };
   const deleteUser = (id) => {
     axios
-      .post("http://localhost:3001/api/user/deleteUser", { id })
+      .post("https://examplle.herokuapp.com/api/user/deleteUser", { id })
       .then((res) => {
         if (currentUser.id === id) {
           removeUser();

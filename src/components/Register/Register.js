@@ -27,7 +27,7 @@ function Register({ currentUser, updateCurrentUser }) {
       return;
     }
     axios
-      .post("http://localhost:3001/api/auth/register", {
+      .post("https://examplle.herokuapp.com/api/auth/register", {
         ...userInfo,
       })
       .then((res) => {

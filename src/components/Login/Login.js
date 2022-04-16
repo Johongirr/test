@@ -28,7 +28,7 @@ function Login({ currentUser, getAllUsers, users, updateCurrentUser }) {
     }
 
     axios
-      .post("http://localhost:3001/api/auth/login", { ...userInfo })
+      .post("https://examplle.herokuapp.com/api/auth/login", { ...userInfo })
       .then((res) => {
         if (res.data.success) {
           setUser(res.data.user);
